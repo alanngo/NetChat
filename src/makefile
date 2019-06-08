@@ -1,3 +1,7 @@
+all:
+	make clean
+	make client
+	make server
 clean:
 	rm -f *.class
 client:
