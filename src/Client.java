@@ -1,24 +1,38 @@
 import java.io.*;
 import java.net.Socket;
+import java.util.Scanner;
 
 public class Client 
 {
 	static PrintStream out = System.out;
 	static PrintStream err = System.err;
+	static Scanner scan = new Scanner(System.in);
 	public static void main(String[] args) 
 	{
 		try 
 		{
-			Socket s = new Socket("localhost", 4999);
-			PrintWriter pr = new PrintWriter(s.getOutputStream());
-			pr.println("is it working?");
-			pr.flush();
+			Socket s = new Socket("localhost", 4999); //client starts connection
 			
+			PrintWriter pr = new PrintWriter(s.getOutputStream());
 			InputStreamReader in = new InputStreamReader(s.getInputStream());
 			BufferedReader bf = new BufferedReader(in);
 			
-			String str = bf.readLine();
-			out.println("Server: "+ str);
+			out.print("CJ: ");
+			String str = scan.nextLine();
+			pr.println(str);// prints on server side
+			pr.flush();
+			
+			String serverStr ="";
+			while (!serverStr.equals("end"))
+			{
+				serverStr = bf.readLine(); //server message
+				out.println("Server: "+ serverStr);
+				out.print("Me: ");
+				String clientStr = scan.nextLine();
+				pr.println(clientStr);
+				pr.flush();
+			}
+			
 			
 			s.close();
 		}
