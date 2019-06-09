@@ -17,7 +17,10 @@ public class Client
 			InputStreamReader in = new InputStreamReader(s.getInputStream());
 			BufferedReader bf = new BufferedReader(in);
 			
-			out.print("CJ: ");
+			out.print("Enter chat name: ");
+			String chatName = scan.nextLine();
+			
+			out.print(chatName+": ");
 			String str = scan.nextLine();
 			pr.println(str);// prints on server side
 			pr.flush();
@@ -27,13 +30,11 @@ public class Client
 			{
 				serverStr = bf.readLine(); //server message
 				out.println("Server: "+ serverStr);
-				out.print("Me: ");
+				out.print(chatName+": ");
 				String clientStr = scan.nextLine();
 				pr.println(clientStr);
 				pr.flush();
 			}
-			
-			
 			s.close();
 		}
 		catch (Throwable e)
