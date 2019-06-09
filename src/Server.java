@@ -30,8 +30,6 @@ import java.util.*
 				pr.println(serverStr);
 				pr.flush();
 			}
-
-			
 			s.close();
 			ss.close();
 		}
