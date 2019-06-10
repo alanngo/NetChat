@@ -24,7 +24,7 @@ import java.util.*
 			while (!clientStr.equals("end"))
 			{
 				clientStr = bf.readLine(); //client message
-				out.println("Client: "+clientStr);
+				out.println(clientStr);
 				out.print("Me: ");
 				String serverStr = scan.nextLine();
 				pr.println(serverStr);

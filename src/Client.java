@@ -22,7 +22,7 @@ public class Client
 			
 			out.print(chatName+": ");
 			String str = scan.nextLine();
-			pr.println(str);// prints on server side
+			pr.println(chatName+": "+str);// prints on server side
 			pr.flush();
 			
 			String serverStr ="";
@@ -32,7 +32,7 @@ public class Client
 				out.println("Server: "+ serverStr);
 				out.print(chatName+": ");
 				String clientStr = scan.nextLine();
-				pr.println(clientStr);
+				pr.println(chatName+": "+clientStr);
 				pr.flush();
 			}
 			s.close();
