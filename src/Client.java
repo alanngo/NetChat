@@ -31,7 +31,7 @@ public class Client
 			pr.flush();
 			
 			String clientStr="", serverStr="";
-			while (!clientStr.equals(TERMINATE))
+			while (true)
 			{
 				serverStr = bf.readLine(); //server message
 				if (serverStr==null||serverStr.equals(TERMINATE))
@@ -52,7 +52,6 @@ public class Client
 				pr.println(chatName+": "+clientStr);
 				pr.flush();
 			}
-			s.close();
 		}
 		catch (Throwable e)
 		{
