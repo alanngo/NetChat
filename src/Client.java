@@ -7,6 +7,7 @@ public class Client
 	static PrintStream out = System.out;
 	static PrintStream err = System.err;
 	static Scanner scan = new Scanner(System.in);
+	final static String TERMINATE = "end";
 	public static void main(String[] args) 
 	{
 		try 
@@ -22,16 +23,32 @@ public class Client
 			
 			out.print(chatName+": ");
 			String str = scan.nextLine();
+			if (str.equals(TERMINATE))
+			{
+				s.close();
+			}
 			pr.println(chatName+": "+str);// prints on server side
 			pr.flush();
 			
-			String serverStr ="";
-			while (!serverStr.equals("end"))
+			String clientStr="", serverStr="";
+			while (!clientStr.equals(TERMINATE))
 			{
 				serverStr = bf.readLine(); //server message
+				if (serverStr==null||serverStr.equals(TERMINATE))
+				{
+					s.close();
+					out.println("SERVER CLOSED");
+					System.exit(0);
+				}
 				out.println("Server: "+ serverStr);
 				out.print(chatName+": ");
-				String clientStr = scan.nextLine();
+				clientStr = scan.nextLine();
+				if (clientStr.equals(TERMINATE))
+				{
+					s.close();
+					out.println("CONNECTION CLOSED BY CLIENT");
+					System.exit(0);
+				}
 				pr.println(chatName+": "+clientStr);
 				pr.flush();
 			}
