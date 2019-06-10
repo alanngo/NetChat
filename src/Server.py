@@ -1,28 +1,26 @@
 
 import socket
 TERMINATE = "end"
-
-try:
+def main():
     ss = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    ss.bind(("NetChat", 4999))
-    ss.listen()
+    ss.bind(('', 1239))
+    ss.listen(5)
     while 1:
         print("Waiting on client...")
-        s = ss.accept()
-        print("Client Coneected")
+        s,a = ss.accept()
+        print("Client Conected")
 
         while 1:
-            clientStr = s.recv()
+            clientStr = s.recv(4096)
             if clientStr == 0 or clientStr == TERMINATE:
                 print("CLIENT CLOSED")
                 break
             print(clientStr)
-            serverStr = input("Me: ")
+            serverStr = raw_input("Me: ")
             if serverStr == TERMINATE:
                 ss.close()
                 print("CONNECTION CLOSED BY SERVER")
                 exit(0)
             print(serverStr)
-
-except:
-    print("Error")
+            ss.send(serverStr)
+main()
