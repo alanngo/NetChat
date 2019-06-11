@@ -8,3 +8,7 @@ client:
 	java Client
 server:
 	java Server
+pyClient:
+	python Client.py
+pyServer:
+	python Server.py
