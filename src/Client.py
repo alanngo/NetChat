@@ -1,17 +1,20 @@
-
 import socket
 
 TERMINATE = "end"
 
 def main():
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    s.connect(('', 1241))
+    s.connect(('', 1248))
     name = raw_input("Enter chat name: ")
+    s.send(name.encode())
+    str = s.recv(4096).decode()
+    print("Server: " + str)
     str = raw_input(name + ": ")
 
+    s.send(str.encode())
+    
     if str == TERMINATE:
         s.close()
-    print(name + ": "+ str)
 
     while 1:
         serverStr = s.recv(4096).decode()
@@ -21,10 +24,10 @@ def main():
             exit(0)
         print("Server: " + serverStr)
         clientStr = raw_input(name + ": ")
+        s.send(clientStr.encode())
         if clientStr == TERMINATE:
             s.close()
             print("CONNECTION CLOSED BY CLIENT")
             exit(0)
-       # print(name + ": "+ clientStr)
-        s.send(clientStr.encode())
+
 main()
