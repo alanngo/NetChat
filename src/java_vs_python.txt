@@ -1,3 +1,0 @@
-We are using Java and Python as the two programming languages to implement our NetChat program. Java and Python have many similarities. Both languages are object-oriented language with extensive standard libraries. And both languages have strong cross-platform support.
-Compare to Python, Java needs more specifications like type declaration. So that Java code generally is longer than Python code. Also, Python is indent sensitive however Java is not.
-I prefer Java over Python because it is easier to debug since we don't need to worry about messing up the variable type or inconsistent indentation.

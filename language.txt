@@ -1,0 +1,18 @@
+Alan Ngo, Lucinda Nguyen, Yunhao Yang
+For this assignment, we used both Java and Python as the two programming languages to
+ implement the NetChat program. Java and Python have many similarities, in the sense 
+that they both can support object-oriented programming and the fact they have prebuilt
+ socket objects. Both languages are object-oriented language with extensive standard 
+libraries. Aside from the language structure, the way both languages handle connections
+ and the input format, both programs have the same logical structure and pretty much do
+the same thing. As far as which one was our favorite, we picked Java, since we all knew
+ that language better and we were more familiar with its semantics and syntax. Compared 
+to Python, Java needs more specifications like type declaration, which is nice because
+ we know what types we are working with and we know the APIS we need. Additionally, Java 
+isn’t indent sensitive, which made debugging the program a lot easier and more efficient, 
+whereas in Python, a majority of our errors were due to indentation problems, which was 
+kind of annoying. All in all, our preferred method was to implement our program in Java 
+over Python because it is easier to debug and more clear about what variable types in 
+addition to the fact that Java isn’t indent-sensitive.
+
+

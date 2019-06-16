@@ -4,7 +4,7 @@ TERMINATE = "end"
 
 def main():
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    s.connect(('', 1248))
+    s.connect(('', 1250))
     name = raw_input("Enter chat name: ")
     s.send(name.encode())
     str = s.recv(4096).decode()

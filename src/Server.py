@@ -2,9 +2,10 @@ import socket
 TERMINATE = "end"
 def main():
     ss = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    ss.bind(('', 1248))
+    ss.bind(('', 1250))
     ss.listen(5)
     while 1:
+        #establish connection and receive message
         print("Waiting on client...")
         s,a = ss.accept()
         print("Client Conected")
@@ -19,7 +20,7 @@ def main():
             if clientStr == 0 or clientStr == TERMINATE:
                 print("CLIENT CLOSED")
                 break
-
+            #client message
             print(clientName + ": " + clientStr)
             serverStr = raw_input("Me: ")
             s.send(serverStr.encode())
